@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/css/style.css" rel="stylesheet">
+    <title>My Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-4 flex flex-row items-center justify-between">
+            <a href="#home" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">SandhyR</a>
+            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                    <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#project">Projects</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<section id="home">
+    <footer class="bg-gray-800 pt-20 pb-14">
+        <p class="text-white text-3xl text-center">Halo! Aku <span class="text-3xl text-blue-600 font-bold">Sandhy Raihan,</span></p>
+        <p class="text-xl text-white text-center">FullStack Developer</p>
+    </footer>
+</section>
+
+<section id="project">
+<footer class="bg-slate-100 pt-20 pb-32"><h1 class="text-center text-3xl font-bold">Project saya</h1>
+    <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
+        <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+                <img src="https://ondemand.bannerbear.com/signedurl/5kBNAm9EpN1VKXb4Yo/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoiU2FuZGh5UiAvICpOZXV0cm9uKiJ9LHsibmFtZSI6ImRlc2MiLCJ0ZXh0IjoiSGFjayBQcm94eSBmb3IgTUM6QkUgd3JpdHRlbiBpbiBHbyJ9LHsibmFtZSI6ImF2YXRhcjUiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXI0IiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyMyIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjIiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXIxIiwiaW1hZ2VfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91Lzc4NTIwMDIwP3Y9NCJ9LHsibmFtZSI6ImNvbnRyaWJ1dG9ycyIsInRleHQiOiJTYW5kaHlSIn0seyJuYW1lIjoic3RhcnMiLCJ0ZXh0IjoiMSJ9XQ&s=709455da4f986cff5c570f08211b77ed64e6168681f42ac14b363a3057055932" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Neutron</h3>
+            <p class="text-base font-medium text-secondary">Hack Proxy for Minecraft Bedrock Edition</p>
+        </div>
+        <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md">
+                <img src="https://ondemand.bannerbear.com/signedurl/5kBNAm9EpN1VKXb4Yo/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoiU2FuZGh5UiAvICpUaGVicmlkZ2UqIn0seyJuYW1lIjoiZGVzYyIsInRleHQiOiJBICBUaGVCcmlkZ2UgUGx1Z2luIEZvciBQb2NrZXRNaW5lLU1QIn0seyJuYW1lIjoiYXZhdGFyNSIsImltYWdlX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8yMjQyNzk2NT92PTQifSx7Im5hbWUiOiJhdmF0YXI0IiwiaW1hZ2VfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91Lzg1NDAyMDg3P3Y9NCJ9LHsibmFtZSI6ImF2YXRhcjMiLCJpbWFnZV91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvOTUxMDQ1NDQ_dj00In0seyJuYW1lIjoiYXZhdGFyMiIsImltYWdlX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xMDE5MjU2MDM_dj00In0seyJuYW1lIjoiYXZhdGFyMSIsImltYWdlX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS83ODUyMDAyMD92PTQifSx7Im5hbWUiOiJjb250cmlidXRvcnMiLCJ0ZXh0IjoiNSBDb250cmlidXRvcnMifSx7Im5hbWUiOiJzdGFycyIsInRleHQiOiIxMSJ9XQ&s=c6eec60b146f6e0fa424c0dca1107cd937b33026ac69becc31f0a7121238a203" width="w-full" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">TheBridge</h3>
+            <p class="text-base font-medium text-secondary">TheBridge Plugin for PocketMine-MP</p>
+        </div>
+    </div></footer>
+</section>
+<section id="about">
+    <footer class="pt-20 pb-32">
+        <h1 class="text-center text-3xl font-bold">About me</h1>
+        <p class="text-center">Hi I am <span class="font-bold">Sandhy Raihan</span>
+            I was born in Jakarta, Indonesia. I studied programming since 2020. My interests around Web Development, Game Server Development.
+        </p>
+    </footer>
+        </section>
+
+<footer class="bg-slate-800 pt-20 pb-6">
+    <div class="container">
+
+        <div>
+            <p class="text-center text-xs font-medium text-slate-500">
+                Created with <span class="text-pink-500">❤ </span> by <span class="font-bold text-primary">SandhyR</span> with
+                <a href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>.
+            </p>
+        </div>
+    </div>
+</footer>
+<script>
+
+
+    var i = 0;
+    function move(){
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width + "%";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
